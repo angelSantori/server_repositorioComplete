@@ -27,7 +27,9 @@ var mimeTypes = {
     '.jpg': 'image/jpg',
     '.gif': 'image/gif',
     '.wav': 'audio/wav',
-    //woof, ttf, eot, otf = application/ font-woof, font-ttf,vnd.ms-fontobject, font-otf
-    //svg = application /image/svg+xml
-
+    '.woof': 'application/font-woof',
+    '.ttf': 'application/font-ttf',
+    '.eot': 'application/vnd.ms-fontobject',
+    '.otf': 'application/font-otf',
+    '.svg': 'application/image/svg+xml',    
 };
