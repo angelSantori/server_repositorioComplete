@@ -24,7 +24,8 @@ let atras = document.getElementById('atras');
 let adelante = document.getElementById('adelante');
 let imagen = document.getElementById('img');
 let puntos = document.getElementById('puntos');
-let texto = document.getElementById('texto')
+let texto = document.getElementById('texto');
+let lupa = document.getElementById('lupa');
 let actual = 0
 posicionCarrusel()
 
@@ -42,6 +43,7 @@ atras.addEventListener('click', function(){
     `
     posicionCarrusel()
 })  
+
 adelante.addEventListener('click', function(){
     actual +=1
 
@@ -68,3 +70,36 @@ function posicionCarrusel() {
         }
     } 
 }
+
+lupa.addEventListener('click', function() {
+    // Obtiene la URL de la imagen actual
+    let imagenActual = imagenes[actual].url;
+
+    // Crea un elemento div para el lightbox
+    let lightbox = document.createElement('div');
+    lightbox.classList.add('lightbox');
+
+    // Crea una imagen en el lightbox
+    let imagenLightbox = document.createElement('img');
+    imagenLightbox.src = imagenActual;
+    lightbox.appendChild(imagenLightbox);
+
+    // Crea un botón con la imagen de "cerrar" para cerrar el lightbox
+    let cerrarBoton = document.createElement('button');
+    cerrarBoton.classList.add('cerrar-btn'); // Agrega una clase para aplicar estilos al botón
+
+    // Crea una imagen en el botón
+    let iconoCerrar = document.createElement('img');
+    iconoCerrar.src = 'img/cerrar.png'; 
+    iconoCerrar.alt = 'Cerrar';
+    cerrarBoton.appendChild(iconoCerrar);
+
+    cerrarBoton.addEventListener('click', function() {
+        document.body.removeChild(lightbox); // Cierra el lightbox al hacer clic en el botón de cerrar
+    });
+
+    lightbox.appendChild(cerrarBoton);
+
+    // Agrega el lightbox al cuerpo del documento
+    document.body.appendChild(lightbox);
+});
