@@ -9,7 +9,7 @@ http.createServer(function (request, response){
     var filePath = '.' + request.url;
 
     if (filePath == './'){
-        filePath = './index.html';
+        filePath = './carrusel.html';
     }
 
     //Tipo de archivos que puede leer el sitio web
